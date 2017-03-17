@@ -6,23 +6,20 @@
 
 class Items
 {
-private:
-  double price;
 
 public:
 
-  //Constructores
+  //Constructor
   Items();
-  Items(double);
 
   //Destructor
   ~Items();
 
-  //getter
+  //getter virtual
   virtual double getPrice();
 
-  //setter
-  virtual void setPrice(double);
+  //funcion de administracion para las acciones de los objetos
+  virtual int action();
 
 };
 

@@ -9,23 +9,20 @@ using namespace std;
 
 class Toys : public Items
 {
-private:
-  int effectiveness;
 
 public:
 
   //Constructores
   Toys();
-  Toys(double, int);
 
   //Destructor
   ~Toys();
 
   //getter
-  int getEffectiveness();
+  virtual int getEffectiveness();
 
-  //setter
-  void setEffectiveness(int);
+  //funcion virtual de administracion apara la accion de los jueguetes
+  virtual int action();
 };
 
 #endif

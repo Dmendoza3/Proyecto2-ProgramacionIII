@@ -7,11 +7,6 @@ Food::Food()
 
 }
 
-Food::Food(double pPrice, string description) : Items(pPrice)
-{
-  this->description = description;
-}
-
 Food::~Food()
 {
 
@@ -19,10 +14,5 @@ Food::~Food()
 
 string Food::getDescription()
 {
-  return description;
-}
-
-void Food::setDescription(string description)
-{
-  this->description = description;
+  return "Comida para mascotas";
 }

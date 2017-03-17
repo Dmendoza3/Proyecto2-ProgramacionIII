@@ -9,14 +9,10 @@ using namespace std;
 
 class Food : public Items
 {
-private:
-  string description;
-
 public:
 
-  //Constructores
+  //Constructor
   Food();
-  Food(double, string);
 
   //Destructor
   ~Food();
@@ -24,8 +20,8 @@ public:
   //getter
   virtual string getDescription();
 
-  //setter
-  virtual void setDescription(string);
+  //funcion de administracion virtual para la accion de la comida
+  virtual int action();
 };
 
 #endif
