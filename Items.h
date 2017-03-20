@@ -19,7 +19,7 @@ public:
   virtual double getPrice();
 
   //funcion de administracion para las acciones de los objetos
-  virtual int action();
+  virtual int action()=0;
 
 };
 

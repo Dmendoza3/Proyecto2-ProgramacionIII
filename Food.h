@@ -21,7 +21,7 @@ public:
   virtual string getDescription();
 
   //funcion de administracion virtual para la accion de la comida
-  virtual int action();
+  virtual int action()=0;
 };
 
 #endif
