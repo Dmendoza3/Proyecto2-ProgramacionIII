@@ -1,56 +1,92 @@
-#include "Food.h"
-#include "Toys.h"
-#include <vector>
-#include <string>
+#include "Pets.h"
 
-#ifndef  PETS_H_
-#define PETS_H_
+Pets::Pets(){}
 
-using namespace std;
-
-class Pets
+Pets::Pets(string name)
 {
-private:
-  string name;
-  vector <Toys*> toys;
-  vector <Food*> food;
+  this->name=name;
+  stomach=100;
+  feeling=100;
+}
 
-public:
+Pets::~Pets()
+{
+  for (int i=0; i < foods.size(); i++){
+    delete foods[i];
+  }
+  food.clear();
+  for (int i=0; i<toys.size(); i++){
+    delete toys[i];
+  }
+  toys.clear();
+}
 
-  //Constructores
-  Pets();
-  Pets(string);
+string Pets::getName()
+{
+  return name;
+}
 
-  //Destructor
-  ~Pets();
+int Pets::getStomach()
+{
+  return stomach;
+}
 
-  //getter
-  string getName();
+int Pets::getFeeling()
+{
+  return feeling;
+}
 
-  //setter
-  void setName(string);
+void Pets::setName(string name)
+{
+  this->name = name;
+}
 
-  //Funciones para la admisnitracion de los vectores
-  //Agregar a los vectores
-  void addToy(Toys*);
-  void addFodd(Food*);
-  //retorna el tamaño del vector
-  int sizeToys();
-  int sizeFoods();
-  //Retorna un articulo del vector
-  Toys* getToy(int);
-  Food* getFood(int);
-  //Funcion de eliminar articulos en los vectores
-  void removeToy(int);
-  void removeFood(int);
+void Pets::setStomach(int stomach)
+{
+  this->stomach = stomach;
+}
 
-  //Funciones virtuales
-  virtual void play()=0;
-  virtual void giveMoney()=0;
-  virtual void eat()=0;
-  virtual void move()=0;
-  virtual void restriction()=0;
-};
+void Pets::setFeeling(int feeling)
+{
+  this->feeling=feeling;
+}
 
+void Pets::addToy(Toys* t)
+{
+  toys.push_back(t);
+}
 
-#endif
+void addFood(Food* f)
+{
+  foods.push_back(f);
+}
+
+int Pets::sizeToys()
+{
+  return toys.size();
+}
+
+int Pets::sizeFoods()
+{
+  return foods.size();
+}
+
+Toys* Pets::getToy(int i)
+{
+  return toys[i];
+}
+
+Food* Pets::getFood(int i)
+{
+  return foods[i];
+}
+
+void Pets::removeToy(int i)
+{
+  toys.erase(toys.begin()+i);
+}
+
+void Pets::removeFood(int i)
+{
+  foods.erase(foods.begin()+i);
+}
