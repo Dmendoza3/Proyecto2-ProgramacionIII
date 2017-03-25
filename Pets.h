@@ -10,7 +10,7 @@ using namespace std;
 
 class Pets
 {
-private:
+protected:
   string name;
   int stomach;
   int feeling;
@@ -39,7 +39,7 @@ public:
   virtual void giveMoney()=0;
   virtual void eat()=0;
   virtual void move()=0;
-  
+
  };
 
 
