@@ -1,5 +1,6 @@
 #include "Food.h"
 #include "Toys.h"
+#include <typeinfo>
 #include <vector>
 #include <string>
 
@@ -35,9 +36,9 @@ public:
   void setFeeling(int);
 
   //Funciones virtuales
-  virtual void play()=0;
-  virtual void giveMoney()=0;
-  virtual void eat()=0;
+  virtual void play(Toys*)=0;
+  virtual int giveMoney()=0;
+  virtual void eat(Food*)=0;
   virtual void move()=0;
 
  };

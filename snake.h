@@ -11,9 +11,9 @@ public:
   snake(string);
 
   //funciones virtuales
-  virtual void play();
-  virtual void giveMoney();
-  virtual void eat();
+  virtual void play(Toys*);
+  virtual void giveMoney(int);
+  virtual void eat(Food*);
   virtual void move();
 };
 
