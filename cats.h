@@ -11,9 +11,9 @@ public:
   cats(string);
 
   //funciones virtuales
-  virtual void play(Toys*);
-  virtual void giveMoney(int);
-  virtual void eat(Food*);
+  virtual void play(Toys*, Player*);
+  virtual void giveMoney(Player*);
+  virtual void eat(Food*, Player*);
   virtual void move();
 };
 
