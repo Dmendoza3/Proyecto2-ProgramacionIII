@@ -5,7 +5,7 @@ snake::snake(){}
 snake::snake(string name1) : Pets(name1)
 {}
 
-void snake::play(Toys* t, PLayer* p)
+bool snake::play(Toys* t, Player* p)
 {
   if (typeid(*t)==typeid(SnakeToy)) {
     feeling += t->action();
@@ -13,8 +13,9 @@ void snake::play(Toys* t, PLayer* p)
       feeling = 100;
     }
     giveMoney(p);
+    return true;
   }else {
-      //cout << "Error en la comida" << endl;
+    return false;
   }
 }
 
@@ -25,7 +26,7 @@ void snake::giveMoney(Player* p)
   p->setMoney(money);
 }
 
-void snake::eat(Food* f, Player* p)
+bool snake::eat(Food* f, Player* p)
 {
   if (typeid(*f)==typeid(SnakeFood)) {
     stomach += f->action();
@@ -33,14 +34,10 @@ void snake::eat(Food* f, Player* p)
       stomach = 100;
     }
     giveMoney(p);
+    return true;
   }else {
-    //cout << "Error con la comida" << endl;
+    return false;
   }
-}
-
-void snake::move()
-{//TODO: trabajar mas tarde con esta funcion
-
 }
 
 void snake::drawEating()

@@ -7,7 +7,7 @@ cats::cats(string name1) : Pets(name1)
 
 }
 
-void cats::play(Toys* t, Player* p)
+bool cats::play(Toys* t, Player* p)
 {
   if (typeid(*t)==typeid(CatToy)) {
     feeling += t->action();
@@ -15,8 +15,9 @@ void cats::play(Toys* t, Player* p)
       feeling = 100;
     }
     giveMoney(p);
+    return true;
   }else {
-    //cout << "Error en la comida" << endl;
+    return false;
   }
 }
 
@@ -27,7 +28,7 @@ void cats::giveMoney(Player* p)
   p->setMoney(money);
 }
 
-void cats::eat(Food* f, Player* p)
+bool cats::eat(Food* f, Player* p)
 {
   if (typeid(*f)==typeid(CatFood)) {
     stomach += f->action();
@@ -35,14 +36,10 @@ void cats::eat(Food* f, Player* p)
       stomach=100;
     }
     giveMoney(p);
+    return true;
   }else {
-    //cout << "Error con la comida" << endl;
+    return false;
   }
-}
-
-void cats::move()
-{//TODO: trabajar mas tarde con esta funcion
-
 }
 
 void cats::drawEating()
@@ -51,7 +48,7 @@ void cats::drawEating()
   in.open("cateating.txt");
   string line;
   string draw="";
-  while (!line.eof()) {
+  while (!in.eof()) {
     getline(in,line);
     draw+=line;
   }
@@ -75,7 +72,7 @@ void cats::drawing()
 {
   ifstream in;
   in.open("cat.txt");
-  strig line;
+  string line;
   string draw="";
   while (!in.eof()) {
     getline(in,line);

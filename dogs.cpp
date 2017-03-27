@@ -7,7 +7,7 @@ dogs::dogs(string name1) : Pets(name1)
 
 }
 
-void dogs::play(Toys* t,Player* p)
+bool dogs::play(Toys* t,Player* p)
 {
   if (typeid(*t)==typeid(DogToy)) {
     feeling += t->action();
@@ -15,9 +15,10 @@ void dogs::play(Toys* t,Player* p)
       feeling = 100;
     }
     giveMoney(p);
+    return true;
   }
   else {
-    //cout << "Error en la comida" << endl;
+    return false;
   }
 }
 
@@ -30,7 +31,7 @@ void dogs::giveMoney(Player* p)
 
 
 
-void dogs::eat(Food* f, Player* p)
+bool dogs::eat(Food* f, Player* p)
 {
   if (typeid(*f)==typeid(DogFood)) {
     stomach+= f->action();
@@ -38,14 +39,10 @@ void dogs::eat(Food* f, Player* p)
       stomach = 100;
     }
     giveMoney(p);
+    return true;
   }else {
-    //cout << "Error no es la comida para el perro" << endl;
+    return false;
   }
-}
-
-void dogs::move()
-{//TODO trabajar mas tarde en esta funcion
-
 }
 
 void dogs::drawEating()

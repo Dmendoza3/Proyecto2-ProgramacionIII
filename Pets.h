@@ -3,6 +3,9 @@
 #include "CatFood.h"
 #include "SnakeFood.h"
 #include "Toys.h"
+#include "DogToy.h"
+#include "CatToy.h"
+#include "SnakeToy.h"
 #include "Player.h"
 #include <typeinfo>
 #include <vector>
@@ -42,9 +45,9 @@ public:
   void setFeeling(int);
 
   //Funciones virtuales
-  virtual void play(Toys*, Player*)=0;
+  virtual bool play(Toys*, Player*)=0;//TODO: cambiar este metodo en las clases hijas
   virtual void giveMoney(Player*)=0;
-  virtual void eat(Food*,Player*)=0;
+  virtual bool eat(Food*,Player*)=0;//TODO: cambiar este metodo en las clases hijas
   virtual void drawEating()=0;
   virtual void drawPlaying()=0;
   virtual void drawing()=0;
