@@ -7,11 +7,15 @@ snake::snake(string name1) : Pets(name1)
 
 void snake::play(Toys* t, PLayer* p)
 {
-  feeling += t->action();
-  if (feeling==100) {
-    feeling = 100;
+  if (typeid(*t)==typeid(SnakeToy)) {
+    feeling += t->action();
+    if (feeling==100) {
+      feeling = 100;
+    }
+    giveMoney(p);
+  }else {
+      //cout << "Error en la comida" << endl;
   }
-  giveMoney(p);
 }
 
 void snake::giveMoney(Player* p)
@@ -39,24 +43,41 @@ void snake::move()
 
 }
 
-string snake::drawEating()
+void snake::drawEating()
 {
   ifstream in;
   in.open("snakeeating.txt");
   string line;
+  string draw="";
   while (!in.eof()) {
     getline(in,line);
+    draw +=line;
   }
-  return line;
+  mvprintw(0,0,"%s",draw);
 }
 
-string snake::drawPlaying()
+void snake::drawPlaying()
 {
   ifstream in;
   in.open("snakeplaying.txt");
   string line;
+  string draw="";
   while (!in.eof()) {
     getline(in,line);
+    draw+=line;
   }
-  return line;
+  mvprintw(0,0,"%s",draw);
+}
+
+void snake::drawing()
+{
+  ifstream in;
+  in.open("snake.txt");
+  string line;
+  string draw = "";
+  while (!in.eof()) {
+    getline(in,line);
+    draw += line;
+  }
+  mvprintw(0,0,"%s",draw);
 }

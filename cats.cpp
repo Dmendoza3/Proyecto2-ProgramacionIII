@@ -9,11 +9,15 @@ cats::cats(string name1) : Pets(name1)
 
 void cats::play(Toys* t, Player* p)
 {
-  feeling += t->action();
-  if (feeling>100) {
-    feeling = 100;
+  if (typeid(*t)==typeid(CatToy)) {
+    feeling += t->action();
+    if (feeling>100) {
+      feeling = 100;
+    }
+    giveMoney(p);
+  }else {
+    //cout << "Error en la comida" << endl;
   }
-  giveMoney(p);
 }
 
 void cats::giveMoney(Player* p)
@@ -41,24 +45,41 @@ void cats::move()
 
 }
 
-string cats::drawEating()
+void cats::drawEating()
 {
   ifstream in;
   in.open("cateating.txt");
   string line;
+  string draw="";
   while (!line.eof()) {
     getline(in,line);
+    draw+=line;
   }
-  return line;
+  mvprintw(0,0,"%s",draw);
 }
 
-string cats::drawPlaying()
+void cats::drawPlaying()
 {
   ifstream in;
   in.open("catplaying.txt");
   string line;
+  string draw="";
   while (!in.eof()){
     getline(in,line);
+    draw +=line;
   }
-  return line;
+  mvprintw(0,0,"%s",draw);
+}
+
+void cats::drawing()
+{
+  ifstream in;
+  in.open("cat.txt");
+  strig line;
+  string draw="";
+  while (!in.eof()) {
+    getline(in,line);
+    draw+=line;
+  }
+  mvprintw(0,0,"%s",draw);
 }

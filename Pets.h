@@ -7,6 +7,7 @@
 #include <typeinfo>
 #include <vector>
 #include <fstream>
+#include <ncurses.h>
 #include <string>
 
 #ifndef  PETS_H_
@@ -44,9 +45,9 @@ public:
   virtual void play(Toys*, Player*)=0;
   virtual void giveMoney(Player*)=0;
   virtual void eat(Food*,Player*)=0;
-  virtual void move()=0;
-  virtual string drawEating()=0;
-  virtual string drawPlaying()=0;
+  virtual void drawEating()=0;
+  virtual void drawPlaying()=0;
+  virtual void drawing()=0;
 
  };
 

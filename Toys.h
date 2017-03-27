@@ -19,10 +19,10 @@ public:
   ~Toys();
 
   //getter
-  virtual int getEffectiveness();
+  virtual int getEffectiveness()=0;
 
   //funcion virtual de administracion apara la accion de los jueguetes
-  virtual int action();
+  virtual int action()=0;
 };
 
 #endif

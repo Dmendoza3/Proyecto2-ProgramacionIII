@@ -15,10 +15,9 @@ public:
   virtual void play(Toys*,Player*);
   virtual void giveMoney(Player*);
   virtual void eat(Food*,Player*);
-  virtual void move();
-  virtual string drawEating();
-  virtual string drawPlaying();
-
+  virtual void drawEating();
+  virtual void drawPlaying();
+  virtual void drawing();
 };
 
 #endif
