@@ -7,12 +7,14 @@ using namespace std;
 
 class User
 {
-	private:	
+	protected:	
 		string name;
 
 	public:
+		User();
 		User(string);
-		virtual ~User();
+		string getName();
+		virtual ~User(){};
 };
 
 #endif

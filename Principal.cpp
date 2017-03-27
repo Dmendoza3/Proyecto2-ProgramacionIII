@@ -1,5 +1,8 @@
 #include <typeinfo>
+
 #include <curses.h>
+
+#include "House.h"
 
 bool sessionPlayer();
 bool sessionGuest();
@@ -8,6 +11,7 @@ bool modifyMap();
 int run()
 {
 	bool game = true;
+	House house;
 
 	initscr(); //Termina ncurses
 	noecho();
@@ -18,12 +22,14 @@ int run()
 	init_pair(0,COLOR_RED,COLOR_BLACK);
     init_pair(1,COLOR_GREEN,COLOR_BLACK);
     init_pair(2,COLOR_BLUE,COLOR_BLACK);
-    init_pair(3,COLOR_YELLOW,COLOR_BLACK);
-    init_pair(4,COLOR_MAGENTA,COLOR_BLACK);
-    init_pair(5,COLOR_CYAN,COLOR_BLACK);
+    init_pair(3,COLOR_YELLOW,COLOR_BLACK); //
+    init_pair(4,COLOR_MAGENTA,COLOR_BLACK); //Floor
+    init_pair(5,COLOR_CYAN,COLOR_CYAN); //Wall
     init_pair(6,COLOR_WHITE,COLOR_BLACK); //Text
     init_pair(7,COLOR_BLACK,COLOR_YELLOW); //Cursor
 
+	init_color(COLOR_MAGENTA,222,222,222); //TODO: elegir color
+	init_color(COLOR_CYAN,222,222,222);
 	
 
 	while(game)
@@ -31,15 +37,15 @@ int run()
 		char op = '\0';
 		mvprint(0,0,"a. Iniciar como jugador.\n
 					b. Iniciar como invitado.\n
-					c. Modificar casa.\n
 					d. Salir\n");
+					/*c. Modificar casa.\n*/
 		op = getch();
 
 		switch(op)
 		{
-			case 'a': while(session(Player); break; //TODO: Player*
-			case 'b': while(session(Guest); break; //TODO: Guest*
-			case 'c': while(modifyMap()); break;
+			case 'a': while(session(house.getPlayer(), &house); break; //TODO: Player*
+			case 'b': while(session(house.getGuest(), &house); break; //TODO: Guest*
+			//case 'c': while(modifyMap()); break;
 			case 'd': game = false;
 		}
 	}
@@ -49,101 +55,65 @@ int run()
 	return 0;
 }
 
-void draw()
+bool session(User* user, House* house)
 {
-	
-}
-
-void getInput()
-{
-	
-}
-
-//Imprimir el mapa
-void printMap(int x, int y, int centerX, int centerY, int width, int height)
-{
-	//TODO: Dibujar el mapa en el centro de la terminal
-}
-
-bool session(User* user)
-{
-	struct cursor{int x,y;} cur;
-	cur.x = cur.y = 0; //TODO: poner el cursor en centro
-
 	bool plyr = (typeid(*user) == typeid(Player)); //Revisar si el usuario es un jugador
 	
-	clear();
+	mvprintw(0, 0, "Bienvenido %s", user->getName())
+
+	//clear();
 	refresh();
 
-	printMap(/*TODO, TODO*/); //TODO: Poner para metros
-
 	char input = getch();
+	int addX = 0, addY = 0;
 
+	//TODO: Enviar input al mapa
 	switch(input)
 	{
 		case KEY_UP:{
-			if(map[m.x - 1][m.y] == false) m.x--;
+			addX = -1
 			break;
 		}
 
 		case KEY_DOWN:{
-			if(map[m.x + 1][m.y] == false) m.x++;
+			addX = 1;
 			break;
 		}
 
 		case KEY_RIGHT:{
-			if(map[m.x][m.y + 1] == false) m.y++;
+			addY = 1;
 			break;
 		}
 
 		case KEY_LEFT:{
-			if(map[m.x][m.y - 1] == false) m.y--;
+			addY = -1;
 			break;
 		}
 
-		case 'a':{
-			//TODO: alimentar
-			//if(usr) alimentar(buscarPrimerColision()); //si es jugador y alimenta a la mascora a la con la que hace colision
-			//TODO: copiar en todas las opciones
+		case 'q':{
+			return false;
 			break;
 		}
 
-		case 'j':{
-			//TODO: jugar
+		default:{
+			if(plyr)
+				house->userInput(addX, addY, input, house);
+			else(plyr)
+				house->userInput(addX, addY, ' ', house);
 			break;
 		}
-
-		case 'i':{
-			//TODO: Ver inventario
-			break;
-		}
-
-		case 's':{
-			//TODO: salir y guardar
-			break;
-		}
-
-		case 'S':{
-			//TODO: salir del programa y guardar
-			break;
-		}
-		//Cambiar color
-		mvprintw(cur.x + 7, cur.y * 2 + 7, "X"); //Mover cursos
-				//Posicion * velocidad + desfase 
 	}
+	return true;
 }
 
-bool modifyMap()
+/*bool modifyMap()
 {
-	struct cursor{int x,y;} cur;
-	cur.x = cur.y = 0; //TODO: poner el cursor en centro
-
 	bool plyr = (typeid(*user) == typeid(Player)); //Revisar si el usuario es un jugador
 	
 	clear();
 	refresh();
 
-	printMap(/*TODO, TODO*/); //TODO: Poner para metros
+	printMap(TODO, TODO); //TODO: Poner para metros
 
 	char input = getch();
 
@@ -203,4 +173,4 @@ bool modifyMap()
 		mvprintw(cur.x + 7, cur.y * 2 + 7, "X"); //Mover cursos
 				//Posicion * velocidad + desfase 
 	}
-}
+}*/

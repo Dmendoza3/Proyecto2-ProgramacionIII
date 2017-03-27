@@ -3,9 +3,10 @@
 #ifndef GUEST_H
 #define GUEST_H
 
-class Guest
+class Guest : public User
 {
 	public:
+		Guest();
 		Guest(string);
 };
 
