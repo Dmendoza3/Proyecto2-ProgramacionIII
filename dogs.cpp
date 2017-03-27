@@ -40,5 +40,27 @@ void dogs::eat(Food* f, Player* p)
 
 void dogs::move()
 {//TODO trabajar mas tarde en esta funcion
-  
+
+}
+
+string dogs::drawEating()
+{
+  ifstream in;
+  in.open("dogeating.txt");
+  string line;
+  while (!in.eof()) {
+    getline(in,line);
+  }
+  return line;
+}
+
+string dogs::drawPlaying()
+{
+  ifstream in;
+  in.open("dogplaying.txt");
+  string line;
+  while (!in.eof()) {
+    getline(in,line);
+  }
+  return line;
 }

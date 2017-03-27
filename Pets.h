@@ -6,6 +6,7 @@
 #include "Player.h"
 #include <typeinfo>
 #include <vector>
+#include <fstream>
 #include <string>
 
 #ifndef  PETS_H_
@@ -44,6 +45,8 @@ public:
   virtual void giveMoney(Player*)=0;
   virtual void eat(Food*,Player*)=0;
   virtual void move()=0;
+  virtual string drawEating()=0;
+  virtual string drawPlaying()=0;
 
  };
 

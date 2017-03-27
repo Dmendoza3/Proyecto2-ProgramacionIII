@@ -38,3 +38,25 @@ void snake::move()
 {//TODO: trabajar mas tarde con esta funcion
 
 }
+
+string snake::drawEating()
+{
+  ifstream in;
+  in.open("snakeeating.txt");
+  string line;
+  while (!in.eof()) {
+    getline(in,line);
+  }
+  return line;
+}
+
+string snake::drawPlaying()
+{
+  ifstream in;
+  in.open("snakeplaying.txt");
+  string line;
+  while (!in.eof()) {
+    getline(in,line);
+  }
+  return line;
+}

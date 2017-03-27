@@ -40,3 +40,25 @@ void cats::move()
 {//TODO: trabajar mas tarde con esta funcion
 
 }
+
+string cats::drawEating()
+{
+  ifstream in;
+  in.open("cateating.txt");
+  string line;
+  while (!line.eof()) {
+    getline(in,line);
+  }
+  return line;
+}
+
+string cats::drawPlaying()
+{
+  ifstream in;
+  in.open("catplaying.txt");
+  string line;
+  while (!in.eof()){
+    getline(in,line);
+  }
+  return line;
+}
