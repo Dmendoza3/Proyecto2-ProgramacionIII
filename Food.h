@@ -20,6 +20,9 @@ public:
   //getter
   virtual string getDescription();
 
+  //funcion virtual para el precio del objeto
+  virtual double getPrice()=0;
+
   //funcion de administracion virtual para la accion de la comida
   virtual int action()=0;
 };

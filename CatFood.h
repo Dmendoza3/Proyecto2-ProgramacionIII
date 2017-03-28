@@ -14,6 +14,9 @@ public:
   //getter virtual de descripcion
   virtual string getDescription();
 
+  //funcion virtual del precio de la comida de gato
+  virtual double getPrice();
+
   //funcion virtual de administracion para la accion de comida de gato
   virtual int action();
 };

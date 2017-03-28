@@ -15,6 +15,9 @@ public:
   //getter virtual de descripcion de la comida
   virtual string getDescription();
 
+  //funcion virtual del precio de la comida de serpiente
+  virtual double getPrice();
+
   //funcion virtual de administracion para la accion de la comida de serpiente
   virtual int action();
 };

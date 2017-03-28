@@ -14,3 +14,8 @@ int SnakeFood::action()
 {
   return 30;
 }
+
+double SnakeFood::getPrice()
+{
+  return 50;
+}

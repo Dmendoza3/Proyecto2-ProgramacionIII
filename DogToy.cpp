@@ -14,3 +14,8 @@ int DogToy::action()
 {
   return 25;
 }
+
+double DogToy::getPrice()
+{
+  return 45;
+}

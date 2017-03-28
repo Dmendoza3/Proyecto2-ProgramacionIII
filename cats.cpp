@@ -4,7 +4,8 @@ cats::cats(){}
 
 cats::cats(string name1) : Pets(name1)
 {
-
+  y = 12;
+  x = 10;
 }
 
 bool cats::play(Toys* t, Player* p)
@@ -79,4 +80,9 @@ void cats::drawing()
     draw+=line;
   }
   mvprintw(0,0,"%s",draw);
+}
+
+void cats::draw()
+{
+  mvprintw(x,y,"%s",'&');
 }

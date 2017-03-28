@@ -11,6 +11,7 @@ public:
 
   //funciones virtuales
   virtual int getEffectiveness();
+  virtual double getPrice();
   virtual int action();
 };
 

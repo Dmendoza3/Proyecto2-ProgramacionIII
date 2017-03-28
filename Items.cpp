@@ -9,8 +9,3 @@ Items::~Items()
 {
 
 }
-
-double Items::getPrice()
-{
-  return 0;
-}

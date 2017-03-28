@@ -24,6 +24,8 @@ protected:
   string name;
   int stomach;
   int feeling;
+  int x;
+  int y;
 
 public:
 
@@ -38,11 +40,15 @@ public:
   string getName();
   int getStomach();
   int getFeeling();
+  int getX();
+  int getY();
 
   //setter
   void setName(string);
   void setStomach(int);
   void setFeeling(int);
+  void setX(int);
+  void setY(int);
 
   //Funciones virtuales
   virtual bool play(Toys*, Player*)=0;//TODO: cambiar este metodo en las clases hijas
@@ -51,8 +57,9 @@ public:
   virtual void drawEating()=0;
   virtual void drawPlaying()=0;
   virtual void drawing()=0;
+  virtual void draw()=0;
 
  };
 
 
-  #endif
+#endif

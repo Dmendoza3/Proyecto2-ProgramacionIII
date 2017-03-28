@@ -14,3 +14,8 @@ int SnakeToy::action()
 {
   return 30;
 }
+
+double SnakeToy::getPrice()
+{
+  return 55;
+}

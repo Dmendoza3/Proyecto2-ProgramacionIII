@@ -18,6 +18,7 @@ public:
   virtual void drawEating();
   virtual void drawPlaying();
   virtual void drawing();
+  virtual void draw();
 };
 
 #endif

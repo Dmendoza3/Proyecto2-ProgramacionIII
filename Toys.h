@@ -21,6 +21,9 @@ public:
   //getter
   virtual int getEffectiveness()=0;
 
+  //funcion virtual para los precios de los juguetes de las mascotas
+  virtual double getPrice()=0;
+
   //funcion virtual de administracion apara la accion de los jueguetes
   virtual int action()=0;
 };

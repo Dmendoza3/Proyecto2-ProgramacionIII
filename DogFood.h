@@ -15,8 +15,11 @@ public:
   //getter virtual de descripcion de la Comida
   virtual string getDescription();
 
+  //funcio virtual para la comida de perro
+  virtual double getPrice();
+
   //funcion virtual de administracion para la accion de comida de perro
-  virtual int action(); 
+  virtual int action();
 };
 
 #endif

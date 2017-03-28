@@ -3,7 +3,10 @@
 snake::snake(){}
 
 snake::snake(string name1) : Pets(name1)
-{}
+{
+  y = 14;
+  x = 10;
+}
 
 bool snake::play(Toys* t, Player* p)
 {
@@ -77,4 +80,9 @@ void snake::drawing()
     draw += line;
   }
   mvprintw(0,0,"%s",draw);
+}
+
+void snake::draw()
+{
+  mvprintw(x,y,"%s",'~');
 }

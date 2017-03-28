@@ -16,7 +16,7 @@ public:
   ~Items();
 
   //getter virtual
-  virtual double getPrice();
+  virtual double getPrice()=0;
 
   //funcion de administracion para las acciones de los objetos
   virtual int action()=0;
