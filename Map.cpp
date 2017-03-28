@@ -226,9 +226,9 @@ void Map::userInput(int addX, int addY, char action, House* house)
 	mvprintw(x + offX, (y * 2) + offY, "X");
 	attroff(COLOR_PAIR(7));
 
-	for(int i = 0; i < house->getNPets(); i++)
+	/*for(int i = 0; i < house->getNPets(); i++)
 	{
 		Pets* p = house->getPet(i);
 		p->randMove();
-	}
+	}*/
 }
