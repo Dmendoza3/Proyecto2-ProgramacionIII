@@ -80,13 +80,13 @@ bool session(User* user, House* house)
 			break;
 		}
 
-		case KEY_RIGHT:{
-			addY = 1;
+		case KEY_LEFT:{
+			addY = -1;
 			break;
 		}
 
-		case KEY_LEFT:{
-			addY = -1;
+		case KEY_RIGHT:{
+			addY = 1;
 			break;
 		}
 

@@ -49,7 +49,10 @@ class House
 
 		//Setters
 		void addPet(Pets*);
-		void getItem(Items*);
+		void addItem(Items*);
+
+		//Destructor
+		~House();
 };
 
 #endif

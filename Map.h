@@ -21,7 +21,7 @@ class Map
 		int height;
 		int offX;
 		int offY;
-		Tile ***map
+		Tile **map
 	
 	public:
 		//Constructor
@@ -32,7 +32,7 @@ class Map
 		void setTile(int, int, Tile*); //Posicion y valor
 
 		//
-		int draw(); //(desfase)
+		int draw();
 		void userInput(int, int, char, House*); //addX, addY, action
 
 		//Destructor

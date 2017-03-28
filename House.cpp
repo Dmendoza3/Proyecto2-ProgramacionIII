@@ -53,7 +53,17 @@ void addPet(Pets* npet)
 	pets.push_back(npet);
 }
 
-void getItem(Items* nitem)
+void addItem(Items* nitem)
 {
 	items.push_back(nitem);
+}
+
+//Destructor
+House::~House()
+{
+	vector<Pets*> pets;
+	vector<Items*> items;
+	Player* player;
+	Guest* guest;
+	Map* map;
 }
