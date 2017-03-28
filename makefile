@@ -11,7 +11,7 @@ CatToy.o: Toys.h CatToy.h CatToy.cpp
 	g++ -c CatToy.cpp -lncurses -std=c++11
 
 DogFood.o:	Food.h DogFood.h DogFood.cpp
-	g++ -C DogFood.cpp -lncurses -std=c++11
+	g++ -c DogFood.cpp -lncurses -std=c++11
 
 dogs.o: Pets.h dogs.h dogs.cpp
 	g++ -c dogs.cpp -lncurses -std=c++11
