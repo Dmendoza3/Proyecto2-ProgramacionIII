@@ -1,5 +1,8 @@
-juego: CatFood.o cats.o CatToy.o DogFood.o dogs.o DogToy.o Floor.o Food.o Guest.o House.o Items.o Map.o Pets.o Player.o Principal.o snake.o SnakeFood.o SnakeToy.o Tile.o Toys.o User.o Wall.o
-	g++ CatFood.o cats.o CatToy.o DogFood.o dogs.o DogToy.o Floor.o Food.o Guest.o House.o Items.o Map.o Pets.o Player.o Principal.o snake.o SnakeFood.o SnakeToy.o Tile.o Toys.o User.o Wall.o -o juego -lncurses -std=c++11
+main: CatFood.o cats.o CatToy.o DogFood.o dogs.o DogToy.o Floor.o Food.o Guest.o House.o Map.o Items.o Pets.o Player.o Principal.o snake.o SnakeFood.o SnakeToy.o Tile.o Toys.o User.o Wall.o main.o
+	g++ CatFood.o cats.o CatToy.o DogFood.o dogs.o DogToy.o Floor.o Food.o Guest.o House.o Items.o Map.o Pets.o Player.o Principal.o snake.o SnakeFood.o SnakeToy.o Tile.o Toys.o User.o Wall.o main.o -o main -lncurses -std=c++11
+
+main.o:
+	g++ main.cpp -c -std=c++11 -lncurses
 
 CatFood.o: Food.h CatFood.h CatFood.cpp
 	g++ -c CatFood.cpp -lncurses -std=c++11
@@ -38,7 +41,7 @@ Map.o:	Tile.h cats.h dogs.h snake.h Map.h Map.cpp
 	g++ -c Map.cpp -lncurses -std=c++11
 
 Pets.o:	Food.h DogFood.h CatFood.h SnakeFood.h Toys.h DogToy.h CatToy.h SnakeToy.h Player.h Pets.h Pets.cpp
-	g++ -c Pets.h -lncurses -std=c++11
+	g++ -c Pets.cpp -lncurses -std=c++11
 
 Player.o:	User.h Items.h Pets.h Player.h Player.cpp
 	g++ -c Player.cpp -lncurses -std=c++11
@@ -66,3 +69,6 @@ User.o:	User.h User.cpp
 
 Wall.o:	Tile.h Wall.h Wall.cpp
 	g++ -c Wall.cpp -lncurses -std=c++11
+
+clean:
+	rm *.o main

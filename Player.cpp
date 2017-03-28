@@ -4,7 +4,9 @@
 Player::Player() : User(""){}
 
 Player::Player(string name) : User(name)
-{}
+{
+	money = 5000;
+}
 
 //Getters
 int Player::getMoney()

@@ -2,17 +2,6 @@
 
 Tile::Tile(){}
 
-//Getters
-int[3] Tile::getForecolor()
-{
-	return (int[3]){foreRed, foreGreen, foreBlue};
-}
-
-int[3] Tile::getBackcolor()
-{
-	return (int[3]){backRed, backGreen, backBlue};
-}
-
 //Setters
 void Tile::setForecolor(int r, int g, int b)
 {

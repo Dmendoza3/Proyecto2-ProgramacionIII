@@ -1,77 +1,83 @@
 #include <typeinfo>
+#include <ncurses.h>
+#include <stdlib.h>
+#include <time.h>
 
-#include <curses.h>
-
+#include "Map.h"
 #include "House.h"
 
-bool sessionPlayer();
-bool sessionGuest();
-bool modifyMap();
+bool session(User*, House*);
+//bool modifyMap();
 
 int run()
 {
 	bool game = true;
 	House house;
+	house.setMap(new Map(0, 20));
+	house.load();
+	srand(time(0));
 
-	initscr(); //Termina ncurses
+
+	initscr(); //Terminal ncurses
 	noecho();
 	raw();
 	keypad(stdscr, TRUE);
-	cursor_set(0);
+	start_color();
+	curs_set(0);
 	
-	init_pair(0,COLOR_RED,COLOR_BLACK);
-    init_pair(1,COLOR_GREEN,COLOR_BLACK);
-    init_pair(2,COLOR_BLUE,COLOR_BLACK);
-    init_pair(3,COLOR_YELLOW,COLOR_BLACK); //
     init_pair(4,COLOR_MAGENTA,COLOR_BLACK); //Floor
     init_pair(5,COLOR_CYAN,COLOR_CYAN); //Wall
-    init_pair(6,COLOR_WHITE,COLOR_BLACK); //Text
     init_pair(7,COLOR_BLACK,COLOR_YELLOW); //Cursor
 
-	init_color(COLOR_MAGENTA,222,222,222); //TODO: elegir color
-	init_color(COLOR_CYAN,222,222,222);
+	init_color(COLOR_MAGENTA,222,222,888); //TODO: elegir color
+	init_color(COLOR_CYAN,222,777,222);
 	
 
 	while(game)
 	{
 		char op = '\0';
-		mvprint(0,0,"a. Iniciar como jugador.\n
-					b. Iniciar como invitado.\n
-					d. Salir\n");
+		mvprintw(0, 0, "a. Iniciar como jugador.");
+		mvprintw(1, 0, "b. Iniciar como invitado.");
+		mvprintw(2, 0, "d. Salir\n");
 					/*c. Modificar casa.\n*/
 		op = getch();
 
 		switch(op)
 		{
-			case 'a': while(session(house.getPlayer(), &house); break; //TODO: Player*
-			case 'b': while(session(house.getGuest(), &house); break; //TODO: Guest*
+			case 'a': while(session(house.getPlayer(), &house)); break; //TODO: Player*
+			case 'b': while(session(house.getGuest(), &house)); break; //TODO: Guest*
 			//case 'c': while(modifyMap()); break;
 			case 'd': game = false;
 		}
 	}
 
-	getch();
 	endwin();
+	house.save();
+	curs_set(1);
 	return 0;
 }
 
 bool session(User* user, House* house)
 {
 	bool plyr = (typeid(*user) == typeid(Player)); //Revisar si el usuario es un jugador
-	
-	mvprintw(0, 0, "Bienvenido %s", user->getName())
 
-	//clear();
-	refresh();
+	if (plyr)
+		mvprintw(0, 0, "%s Dinero: %d", user->getName().c_str(), dynamic_cast<Player*>(user)->getMoney());
+	else
+		mvprintw(0, 0, "Invitado");
 
-	char input = getch();
+
+	int input = getch();
 	int addX = 0, addY = 0;
 
+	clear();
+	refresh();
+	
 	//TODO: Enviar input al mapa
 	switch(input)
 	{
 		case KEY_UP:{
-			addX = -1
+			addX = -1;
 			break;
 		}
 
@@ -96,13 +102,12 @@ bool session(User* user, House* house)
 		}
 
 		default:{
-			if(plyr)
-				house->userInput(addX, addY, input, house);
-			else(plyr)
-				house->userInput(addX, addY, ' ', house);
+			if(!plyr)
+				input = ' ';
 			break;
 		}
 	}
+	house->getMap()->userInput(addX, addY, input, house);
 	return true;
 }
 

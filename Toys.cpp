@@ -9,3 +9,8 @@ Toys::~Toys()
 {
 
 }
+
+string Toys::getDescription()
+{
+	return "Juguete para mascotas";
+}

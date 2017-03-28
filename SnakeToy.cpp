@@ -19,3 +19,8 @@ double SnakeToy::getPrice()
 {
   return 55;
 }
+
+string SnakeToy::getDescription()
+{
+	return "Juguete para serpiente";
+}

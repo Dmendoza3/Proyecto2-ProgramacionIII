@@ -8,7 +8,7 @@ snake::snake(string name1) : Pets(name1)
   x = 10;
 }
 
-bool snake::play(Toys* t, Player* p)
+bool snake::play(Items* t, Player* p)
 {
   if (typeid(*t)==typeid(SnakeToy)) {
     feeling += t->action();
@@ -29,7 +29,7 @@ void snake::giveMoney(Player* p)
   p->setMoney(money);
 }
 
-bool snake::eat(Food* f, Player* p)
+bool snake::eat(Items* f, Player* p)
 {
   if (typeid(*f)==typeid(SnakeFood)) {
     stomach += f->action();
@@ -51,9 +51,9 @@ void snake::drawEating()
   string draw="";
   while (!in.eof()) {
     getline(in,line);
-    draw +=line;
+    draw +=line+'\n';
   }
-  mvprintw(0,0,"%s",draw);
+  mvprintw(0,0,"%s",draw.c_str());
 }
 
 void snake::drawPlaying()
@@ -64,9 +64,9 @@ void snake::drawPlaying()
   string draw="";
   while (!in.eof()) {
     getline(in,line);
-    draw+=line;
+    draw+=line+'\n';
   }
-  mvprintw(0,0,"%s",draw);
+  mvprintw(0,0,"%s",draw.c_str());
 }
 
 void snake::drawing()
@@ -77,12 +77,12 @@ void snake::drawing()
   string draw = "";
   while (!in.eof()) {
     getline(in,line);
-    draw += line;
+    draw += line+'\n';
   }
-  mvprintw(0,0,"%s",draw);
+  mvprintw(0,0,"%s",draw.c_str());
 }
 
-void snake::draw()
+void snake::draw(int offx, int offy)
 {
-  mvprintw(x,y,"%s",'~');
+  mvprintw(x + offx, y*2 + offy,"%s","~");
 }

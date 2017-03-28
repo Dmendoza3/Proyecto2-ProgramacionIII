@@ -19,3 +19,8 @@ double DogToy::getPrice()
 {
   return 45;
 }
+
+string DogToy::getDescription()
+{
+	return "Juguete para perro";
+}

@@ -19,3 +19,8 @@ int CatToy::action()
 {
   return 20;
 }
+
+string CatToy::getDescription()
+{
+	return "Juguete para gato";
+}

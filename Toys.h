@@ -26,6 +26,7 @@ public:
 
   //funcion virtual de administracion apara la accion de los jueguetes
   virtual int action()=0;
+  virtual string getDescription();
 };
 
 #endif

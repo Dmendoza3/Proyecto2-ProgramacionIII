@@ -1,4 +1,11 @@
 #include <vector>
+#include <fstream>
+
+/*#ifndef MAP_INCLUDING_HOUSE
+#define HOUSE_INCLUDING_MAP
+#include "Map.h"
+#undef HOUSE_INCLUDING_MAP
+#endif*/
 
 #include "Pets.h"
 #include "dogs.h" 
@@ -12,16 +19,20 @@
 #include "SnakeFood.h"
 
 #include "Toys.h"
+#include "DogToy.h"
+#include "CatToy.h"
+#include "SnakeToy.h"
 
 #include "User.h"
 #include "Player.h"
 #include "Guest.h"
-#include "Map.h"
 
 using namespace std;
 
 #ifndef HOUSE_H
 #define HOUSE_H
+
+class Map;
 
 class House
 {
@@ -39,7 +50,7 @@ class House
 		int getNPets();
 		int getNItems();
 		Pets* getPet(int);
-		Item* getItem(int);
+		Items* getItem(int);
 		void delItem(int);
 		Player* getPlayer();
 		Guest* getGuest();
@@ -50,6 +61,7 @@ class House
 		//Setters
 		void addPet(Pets*);
 		void addItem(Items*);
+		void setMap(Map*);
 
 		//Destructor
 		~House();

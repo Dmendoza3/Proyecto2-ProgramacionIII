@@ -1,27 +1,33 @@
-#include "House.h"
 #include "dogs.h"
 #include "cats.h"
 #include "snake.h"
 #include "Tile.h"
+#include "Wall.h"
+#include "Floor.h"
+
+#include "House.h"
+/*#ifndef HOUSE_INCLUDING_MAP
+#define MAP_INCLUDING_HOUSE
+#include "House.h"
+#undef MAP_INCLUDING_HOUSE
+#endif*/
 
 #include <typeinfo>
+#include <ncurses.h>
 
 #ifndef MAP_H
 #define MAP_H
 
-struct cursor{
-	int x,y;
-};
-
 class Map
 {
 	private:
-		cursor cur;
+		int x;
+		int y;
 		int width;
 		int height;
 		int offX;
 		int offY;
-		Tile **map
+		Tile*** map;
 	
 	public:
 		//Constructor
@@ -32,11 +38,11 @@ class Map
 		void setTile(int, int, Tile*); //Posicion y valor
 
 		//
-		int draw();
+		void draw(House*);
 		void userInput(int, int, char, House*); //addX, addY, action
+		Pets* selectedPet(Map*, House*);
 
 		//Destructor
 		~Map(); //Limpiar mapa
 };
-
 #endif

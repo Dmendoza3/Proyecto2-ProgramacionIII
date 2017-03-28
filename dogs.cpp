@@ -8,7 +8,7 @@ dogs::dogs(string name1) : Pets(name1)
   x = 10;
 }
 
-bool dogs::play(Toys* t,Player* p)
+bool dogs::play(Items* t,Player* p)
 {
   if (typeid(*t)==typeid(DogToy)) {
     feeling += t->action();
@@ -32,7 +32,7 @@ void dogs::giveMoney(Player* p)
 
 
 
-bool dogs::eat(Food* f, Player* p)
+bool dogs::eat(Items* f, Player* p)
 {
   if (typeid(*f)==typeid(DogFood)) {
     stomach+= f->action();
@@ -54,9 +54,9 @@ void dogs::drawEating()
   string draw="";
   while (!in.eof()) {
     getline(in,line);
-    draw+=line;
+    draw+=line + '\n';
   }
-  mvprintw(0,0,"%s",draw);
+  mvprintw(0,0,"%s",draw.c_str());
 }
 
 void dogs::drawPlaying()
@@ -67,9 +67,9 @@ void dogs::drawPlaying()
   string draw="";
   while (!in.eof()) {
     getline(in,line);
-    draw+=line;
+    draw+=line + '\n';
   }
-  mvprintw(0,0,"%s",draw);
+  mvprintw(0,0,"%s",draw.c_str());
 }
 
 void dogs::drawing()
@@ -80,12 +80,12 @@ void dogs::drawing()
   string draw="";
   while (!in.eof()) {
     getline(in,line);
-    draw+=line;
+    draw+=line + '\n';
   }
-  mvprintw(0,0,"%s",draw);
+  mvprintw(0,0,"%s",draw.c_str());
 }
 
-void dogs::draw()
+void dogs::draw(int offx, int offy)
 {
-  mvprintw(x,y,"%s",'#');
+  mvprintw(x + offx,y*2 + offy,"%s","#");
 }

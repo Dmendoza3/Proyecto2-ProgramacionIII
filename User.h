@@ -14,6 +14,7 @@ class User
 		User();
 		User(string);
 		string getName();
+		void setName(string);
 		virtual ~User(){};
 };
 

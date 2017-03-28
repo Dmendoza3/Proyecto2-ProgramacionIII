@@ -12,13 +12,13 @@ public:
   dogs(string);
 
   //funciones virtuales
-  virtual bool play(Toys*,Player*);
+  virtual bool play(Items*,Player*);
   virtual void giveMoney(Player*);
-  virtual bool eat(Food*,Player*);
+  virtual bool eat(Items*,Player*);
   virtual void drawEating();
   virtual void drawPlaying();
   virtual void drawing();
-  virtual void draw();
+  virtual void draw(int, int);
 };
 
 #endif

@@ -11,6 +11,6 @@ class Floor : public Tile
 		
 		//
 		virtual void draw(int, int);
-}
+};
 
 #endif

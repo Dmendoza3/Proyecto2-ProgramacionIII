@@ -9,10 +9,6 @@ Pets::Pets(string name)
   feeling=100;
 }
 
-Pets::~Pets()
-{
-}
-
 string Pets::getName()
 {
   return name;
@@ -41,4 +37,34 @@ void Pets::setStomach(int stomach)
 void Pets::setFeeling(int feeling)
 {
   this->feeling=feeling;
+}
+
+void Pets::setX(int nx)
+{
+	x = nx;
+}
+
+void Pets::setY(int ny)
+{
+	y = ny;
+}
+
+int Pets::getX()
+{
+	return x;
+}
+
+int Pets::getY()
+{
+	return y;
+}
+
+void Pets::randMove()
+{
+	int nX,nY;
+	nX = rand() % 46 + 2;
+	nY = rand() % 46 + 2;
+
+	x = nX;
+	y = nY;
 }

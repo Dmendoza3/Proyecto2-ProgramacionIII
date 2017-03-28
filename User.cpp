@@ -7,7 +7,12 @@ User::User(string nName)
 	name = nName;
 }
 
-User::getName()
+string User::getName()
 {
 	return name;
+}
+
+void User::setName(string nName)
+{
+	name = nName;
 }

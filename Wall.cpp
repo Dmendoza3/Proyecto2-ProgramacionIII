@@ -1,5 +1,7 @@
 #include "Wall.h"
 
+Wall::Wall(){}
+
 void Wall::draw(int row, int col)
 {
 	attron(COLOR_PAIR(5));

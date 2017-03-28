@@ -3,6 +3,9 @@
 House::House(){
 	player = new Player("Jugador");
 	guest = new Guest();
+	addPet(new dogs("Perro"));
+	addPet(new cats("Gato"));
+	addPet(new snake("Serpiente"));
 }
 
 //Getters
@@ -21,7 +24,7 @@ Pets* House::getPet(int index)
 	return pets[index];
 }
 
-Item* House::getItem(int index)
+Items* House::getItem(int index)
 {
 	return items[index];
 }
@@ -29,7 +32,7 @@ Item* House::getItem(int index)
 void House::delItem(int index)
 {
 	delete items[index];
-	items.erase(this->begin() + index);
+	items.erase(items.begin() + index);
 }
 
 Player* House::getPlayer()
@@ -47,15 +50,32 @@ Map* House::getMap()
 	return map;
 }
 
+void House::save()
+{
+	ofstream oFile("save.txt");
+	oFile << *player;
+}
+
+void House::load()
+{
+	ifstream iFile("save.txt");
+	iFile >> *player;
+}
+
 //Setters
-void addPet(Pets* npet)
+void House::addPet(Pets* npet)
 {
 	pets.push_back(npet);
 }
 
-void addItem(Items* nitem)
+void House::addItem(Items* nitem)
 {
 	items.push_back(nitem);
+}
+
+void House::setMap(Map* nMap)
+{
+	map = nMap;
 }
 
 //Destructor

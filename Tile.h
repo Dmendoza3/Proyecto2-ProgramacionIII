@@ -18,10 +18,6 @@ class Tile
 		//Constructor
 		Tile();
 		
-		//Getter
-		int[3] getForecolor();
-		int[3] getBackcolor();
-
 		//Setter
 		void setForecolor(int, int, int);
 		void setBackcolor(int, int, int);	
@@ -30,7 +26,7 @@ class Tile
 		virtual void draw(int, int) = 0;
 
 		//Operators
-//		bool operator=(); //Compara getValue() con un numero		
+//		bool operator=(); //Compara getValue() con un numero
 
 		//Destructor
 		virtual ~Tile(){};

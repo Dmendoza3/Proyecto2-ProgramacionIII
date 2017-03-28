@@ -13,6 +13,7 @@ public:
   virtual int getEffectiveness();
   virtual double getPrice();
   virtual int action();
+  virtual string getDescription();
 };
 
 #endif
