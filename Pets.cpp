@@ -59,12 +59,16 @@ int Pets::getY()
 	return y;
 }
 
-void Pets::randMove()
+/*void Pets::randMove()
 {
 	int nX,nY;
-	nX = rand() % 46 + 2;
-	nY = rand() % 46 + 2;
+	nX = rand() % 1 - 1;
+	nY = rand() % 1 - 1;
 
-	x = nX;
-	y = nY;
-}
+	x += nX;
+	if(x < 0)
+		x = 49;
+	y += nY;
+	if(y < 0)
+		y = 49;
+}*/

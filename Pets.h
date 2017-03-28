@@ -51,7 +51,7 @@ class Pets
 		void setX(int);
 		void setY(int);
 
-		void randMove();
+		//void randMove();
 
 		//Funciones virtuales
 		virtual bool play(Items*, Player*)=0;//TODO: cambiar este metodo en las clases hijas
