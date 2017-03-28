@@ -1,7 +1,6 @@
 juego: CatFood.o cats.o CatToy.o DogFood.o dogs.o DogToy.o Floor.o Food.o Guest.o House.o Items.o Map.o Pets.o Player.o Principal.o snake.o SnakeFood.o SnakeToy.o Tile.o Toys.o User.o Wall.o
 	g++ CatFood.o cats.o CatToy.o DogFood.o dogs.o DogToy.o Floor.o Food.o Guest.o House.o Items.o Map.o Pets.o Player.o Principal.o snake.o SnakeFood.o SnakeToy.o Tile.o Toys.o User.o Wall.o -o juego -lncurses -std=c++11
 
-
 CatFood.o: Food.h CatFood.h CatFood.cpp
 	g++ -c CatFood.cpp -lncurses -std=c++11
 

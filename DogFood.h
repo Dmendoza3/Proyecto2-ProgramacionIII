@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class DogFood : Food
+class DogFood : public Food
 {
 public:
 
